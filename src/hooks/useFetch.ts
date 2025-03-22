@@ -9,7 +9,7 @@ export default function useFetch() {
       const requestOptions = {
         method,
         headers: myHeaders,
-        ...(data ? { body:  JSON.stringify(data) } : {}),
+        ...(data ? { body: JSON.stringify(data) } : {}),
       };
 
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}${route}`, requestOptions);
@@ -28,5 +28,5 @@ export default function useFetch() {
     put: (route: string, data: Record<string, any>) => callApi('PUT', route, data),
     patch: (route: string, data: Record<string, any>) => callApi('PATCH', route, data),
     delete: (route: string, data?: Record<string, any>) => callApi('DELETE', route, data),
-  }
+  };
 }
